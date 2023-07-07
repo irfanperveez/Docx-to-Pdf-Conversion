@@ -1,21 +1,6 @@
-
+const path = require ('path');
 var docxConverter = require("docx-pdf");
-const multer = require("multer");
-const path = require("path");
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads");
-  },
-  filename: function (req, file, cb) {
-    cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`); //Appending extension
-  },
-});
- 
-const upload = multer({ storage: storage });
-
 const homepage =  (req, res) => {
-    //  res.sendFile(__dirname + "/index.html");
      res.sendFile(path.join(__dirname, "../views/index.html"));
   };
 
@@ -27,7 +12,8 @@ const homepage =  (req, res) => {
         }
         
         res.download(outputpath)
+        return outputpath;
       });
     };
 
-  module.exports = {homepage, uploadfile, upload};
+  module.exports = {homepage, uploadfile};
