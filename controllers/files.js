@@ -12,7 +12,6 @@ const homepage =  (req, res) => {
         }
         
         res.download(outputpath)
-        return outputpath;
       });
     };
 
