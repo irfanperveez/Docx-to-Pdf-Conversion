@@ -3,7 +3,7 @@ const path = require('path');
 const bodyparser = require("body-parser");
 const app = express();
 const files = require('../controllers/files');
-const middleware = require('../controllers/middleware');
+const middleware = require('../middlewares/middleware');
 
 app.use(express.static("uploads"));
 app.use(bodyparser.urlencoded({ extended: false }));

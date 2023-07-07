@@ -1,7 +1,7 @@
 const path = require ('path');
 var docxConverter = require("docx-pdf");
 const homepage =  (req, res) => {
-     res.sendFile(path.join(__dirname, "../views/index.html"));
+     res.sendFile(path.join(__dirname, "../../client/public/index.html"));
   };
 
   const uploadfile =  (req, res) => {
