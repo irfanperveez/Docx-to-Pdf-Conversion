@@ -1,18 +1,13 @@
-const express = require("express");
-const path = require('path');
-const bodyparser = require("body-parser");
-const app = express();
+const express = require('express');
+const router = express.Router();
 const files = require('../controllers/files');
 const middleware = require('../middlewares/middleware');
 
-app.use(express.static("uploads"));
-app.use(bodyparser.urlencoded({ extended: false }));
-app.use(bodyparser.json());
 
-app.get('/', files.homepage);
-app.post('/docxtopdf', middleware.uploadMiddleware, files.uploadfile);
+
+router.get('/', files.homepage);
+router.post('/docxtopdf', middleware.uploadMiddleware, files.uploadfile);
+
 
  
-app.listen(5000, () => {
-  console.log("App is listening on port 5000");
-});
+module.exports = router;
